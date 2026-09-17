@@ -1,45 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>David Fernando</title>
+<meta name="description" content="CV and portfolio for David Fernando, SEO and WordPress engineer and automation builder.">
 <style>
 :root{
-  --bg:#f6f5f2;
+  --bg:#ffffff;
   --surface:#ffffff;
-  --ink:#1c2321;
-  --ink-soft:#57615c;
-  --line:#e2dfd6;
-  --accent:#c4501f;
-  --accent-soft:#f3e2d6;
+  --panel:#fbf8f5;
+  --ink:#131110;
+  --ink-soft:#5c564f;
+  --line:#e6e0d7;
+  --accent:#b23a1f;
+  --accent-dark:#8a2c17;
+  --accent-soft:#f6e2d6;
   --mono-bg:#1c2321;
   --mono-ink:#e9e6de;
-  --tag-bg:#eef1ec;
-  --tag-ink:#3d4a44;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#141615;
-    --surface:#1c1f1d;
-    --ink:#eeece6;
-    --ink-soft:#a3ada6;
-    --line:#33372f;
-    --accent:#e07a45;
-    --accent-soft:#33251c;
-    --mono-bg:#0f1110;
-    --mono-ink:#d8dcd4;
-    --tag-bg:#242a25;
-    --tag-ink:#c2ccc4;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#141615;
-  --surface:#1c1f1d;
-  --ink:#eeece6;
-  --ink-soft:#a3ada6;
-  --line:#33372f;
-  --accent:#e07a45;
-  --accent-soft:#33251c;
-  --mono-bg:#0f1110;
-  --mono-ink:#d8dcd4;
-  --tag-bg:#242a25;
-  --tag-ink:#c2ccc4;
+  --tag-bg:#f1efe9;
+  --tag-ink:#332f28;
+  --shadow:0 1px 2px rgba(20,15,10,0.04), 0 8px 24px -12px rgba(20,15,10,0.12);
+  --shadow-hover:0 4px 10px rgba(20,15,10,0.06), 0 16px 32px -14px rgba(20,15,10,0.18);
 }
 *{box-sizing:border-box;}
 body{
@@ -48,53 +30,80 @@ body{
   color:var(--ink);
   font-family:"Inter","Source Sans 3",system-ui,sans-serif;
   padding:0 20px;
-  padding-block:56px;
+  padding-block:0 56px;
+  border-top:5px solid var(--accent);
 }
 .wrap{max-width:840px;margin:0 auto;}
 h1,h2,h3{font-family:"Fraunces","Georgia",serif;margin:0;text-wrap:balance;}
 a{color:var(--accent);}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;}
+}
+
+/* language toggle */
+.langbar{display:flex;justify-content:flex-end;padding-top:22px;margin-bottom:14px;}
+.lang-btn{
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--ink);
+  font-size:0.78rem;
+  font-weight:700;
+  padding:8px 16px;
+  border-radius:100px;
+  cursor:pointer;
+  font-family:"Inter",sans-serif;
+  box-shadow:var(--shadow);
+  transition:transform .15s ease, border-color .15s ease, color .15s ease;
+}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
 
 /* header */
 .hero{
   display:flex;
   flex-wrap:wrap;
-  gap:28px;
+  gap:24px;
   justify-content:space-between;
-  align-items:flex-end;
-  border-bottom:1px solid var(--line);
-  padding-bottom:28px;
-  margin-bottom:36px;
+  align-items:center;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:32px;
+  margin-bottom:40px;
+  box-shadow:var(--shadow);
 }
 .hero-id{
   display:flex;
   align-items:center;
-  gap:20px;
+  gap:22px;
+  flex-wrap:wrap;
 }
 .avatar{
-  width:96px;
-  height:96px;
+  width:104px;
+  height:104px;
   border-radius:50%;
   object-fit:cover;
-  border:2px solid var(--accent);
+  border:3px solid var(--surface);
+  box-shadow:0 0 0 3px var(--accent), var(--shadow);
   flex-shrink:0;
 }
-@media (max-width:560px){
-  .hero-id{gap:14px;}
-  .avatar{width:72px;height:72px;}
+@media (max-width:640px){
+  .hero{padding:24px;border-radius:14px;}
+  .hero-id{gap:16px;}
+  .avatar{width:76px;height:76px;}
 }
-.hero h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-0.01em;}
+.hero h1{font-size:clamp(1.9rem,7vw,3rem);font-weight:600;letter-spacing:-0.01em;line-height:1.05;}
 .hero .role{
-  font-size:1.05rem;
+  font-size:1.02rem;
   color:var(--ink-soft);
   margin-top:8px;
 }
 .contact{
   display:flex;
   flex-direction:column;
-  gap:6px;
+  gap:7px;
   font-size:0.92rem;
   color:var(--ink-soft);
-  text-align:right;
+  text-align:left;
 }
 .contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
 .contact a:hover{border-color:var(--accent);color:var(--accent);}
@@ -107,22 +116,34 @@ section{margin-bottom:44px;}
   text-transform:uppercase;
   color:var(--accent);
   font-weight:700;
-  margin-bottom:10px;
-  display:block;
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{
+  content:"";
+  width:20px;
+  height:2px;
+  background:var(--accent);
+  display:inline-block;
+  border-radius:2px;
 }
 .summary p{
-  font-size:1.05rem;
-  line-height:1.65;
+  font-size:1.06rem;
+  line-height:1.7;
   color:var(--ink);
   max-width:65ch;
+  text-align:justify;
+  text-justify:inter-word;
 }
 
 /* experience cards */
 .entry{
   display:grid;
-  grid-template-columns:150px 1fr;
+  grid-template-columns:130px 1fr;
   gap:20px;
-  padding:22px 0;
+  padding:24px 0;
   border-top:1px solid var(--line);
 }
 .entry:last-child{border-bottom:1px solid var(--line);}
@@ -131,40 +152,51 @@ section{margin-bottom:44px;}
   color:var(--ink-soft);
   font-variant-numeric:tabular-nums;
   padding-top:2px;
+  font-weight:600;
 }
 .entry h3{font-size:1.15rem;font-weight:600;}
 .entry .org{color:var(--accent);font-weight:600;font-size:0.95rem;margin-top:2px;}
 .entry ul{margin:12px 0 0;padding-left:18px;color:var(--ink-soft);line-height:1.6;font-size:0.96rem;}
-.entry ul li{margin-bottom:5px;}
-.entry .stack{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;}
+.entry ul li{margin-bottom:6px;text-align:justify;text-justify:inter-word;}
+.entry .stack{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px;}
 .chip{
   background:var(--tag-bg);
   color:var(--tag-ink);
   font-size:0.78rem;
-  padding:4px 10px;
+  padding:5px 12px;
   border-radius:100px;
   font-weight:600;
 }
+.entry .stack .chip{background:var(--accent-soft);color:var(--accent-dark);}
 .featured{
-  background:var(--surface);
+  background:linear-gradient(180deg,var(--panel),var(--surface) 40%);
   border:1px solid var(--line);
-  border-radius:4px;
-  padding:24px;
+  border-radius:14px;
+  padding:52px 26px 26px;
   position:relative;
+  box-shadow:var(--shadow);
 }
 .featured::before{
   content:"Flagship engagement";
   position:absolute;
-  top:-11px;
-  left:20px;
+  top:20px;
+  left:26px;
   background:var(--accent);
   color:#fff;
   font-size:0.68rem;
   letter-spacing:0.1em;
   text-transform:uppercase;
   font-weight:700;
-  padding:4px 10px;
+  padding:5px 12px;
   border-radius:100px;
+}
+:root[data-lang="id"] .featured::before{content:"Peran utama";}
+.featured .entry-body{margin-top:20px;}
+@media (max-width:640px){
+  .entry{grid-template-columns:1fr;gap:8px;padding:20px 0;}
+  .entry .when{padding-top:0;}
+  .featured{padding:52px 18px 20px;}
+  .featured::before{left:18px;}
 }
 
 /* sites showcase */
@@ -177,14 +209,15 @@ section{margin-bottom:44px;}
 @media (max-width:600px){.sites{grid-template-columns:1fr;}}
 .site-card{
   border:1px solid var(--line);
-  border-radius:6px;
+  border-radius:10px;
   overflow:hidden;
   background:var(--surface);
   text-decoration:none;
   display:block;
-  transition:border-color .15s ease;
+  box-shadow:var(--shadow);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.site-card:hover{border-color:var(--accent);}
+.site-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--shadow-hover);}
 .site-browser{
   background:var(--mono-bg);
   padding:10px 14px;
@@ -203,8 +236,10 @@ section{margin-bottom:44px;}
   white-space:nowrap;
 }
 .site-body{padding:16px;}
-.site-body h4{margin:0 0 6px;font-family:"Fraunces",serif;font-size:1.05rem;color:var(--ink);}
-.site-body p{margin:0;font-size:0.88rem;color:var(--ink-soft);line-height:1.5;}
+.site-title{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.site-logo{width:28px;height:28px;object-fit:contain;border-radius:6px;flex-shrink:0;}
+.site-body h4{margin:0;font-family:"Fraunces",serif;font-size:1.05rem;color:var(--ink);}
+.site-body p{margin:0;font-size:0.88rem;color:var(--ink-soft);line-height:1.5;text-align:justify;text-justify:inter-word;}
 .site-visit{margin-top:10px;font-size:0.8rem;color:var(--accent);font-weight:600;}
 
 /* projects grid */
@@ -212,28 +247,62 @@ section{margin-bottom:44px;}
 @media (max-width:600px){.projects{grid-template-columns:1fr;}}
 .proj{
   border:1px solid var(--line);
-  border-radius:6px;
-  padding:18px;
+  border-radius:10px;
+  padding:20px;
   background:var(--surface);
+  box-shadow:var(--shadow);
+  transition:transform .18s ease, box-shadow .18s ease;
 }
+.proj:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
 .proj h4{font-size:1rem;font-weight:700;margin:0 0 4px;font-family:"Inter",sans-serif;}
 .proj .tag{font-size:0.72rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:block;}
-.proj p{font-size:0.88rem;color:var(--ink-soft);line-height:1.55;margin:0;}
+.proj p{font-size:0.88rem;color:var(--ink-soft);line-height:1.55;margin:0 0 12px;text-align:justify;text-justify:inter-word;}
+.proj-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  font-size:0.82rem;
+  font-weight:700;
+  color:var(--accent);
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+}
+.proj-link:hover{border-color:var(--accent);}
 
 /* skills */
-.skills{display:flex;flex-direction:column;gap:14px;}
+.skills{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:22px;
+}
 .skill-row{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:baseline;}
 @media (max-width:560px){.skill-row{grid-template-columns:1fr;gap:6px;}}
 .skill-row .label{font-size:0.82rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;}
 .skill-row .items{display:flex;flex-wrap:wrap;gap:8px;}
+.skills .chip{background:var(--surface);border:1px solid var(--line);}
 
 /* education */
-.edu{display:flex;flex-direction:column;gap:2px;padding:18px 0;border-top:1px solid var(--line);}
+.edu{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line);}
 .edu:last-child{border-bottom:1px solid var(--line);}
+.edu-logo{
+  width:44px;
+  height:44px;
+  object-fit:contain;
+  flex-shrink:0;
+  margin-top:2px;
+}
+.edu-main{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0;}
 .edu-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 .edu h3{font-size:1.05rem;}
-.edu .when{font-size:0.85rem;color:var(--ink-soft);}
+.edu .when{font-size:0.85rem;color:var(--ink-soft);font-weight:600;}
 .edu .detail{font-size:0.9rem;color:var(--ink-soft);}
+@media (max-width:480px){
+  .edu-logo{width:36px;height:36px;}
+}
 
 footer{
   text-align:center;
@@ -243,46 +312,61 @@ footer{
   padding-top:24px;
   border-top:1px solid var(--line);
 }
+@media (max-width:480px){
+  body{padding-inline:16px;}
+  .hero h1{font-size:2rem;}
+  .contact{font-size:0.86rem;}
+}
 </style>
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+</head>
+<body>
 
 <div class="wrap">
+
+  <div class="langbar">
+    <button class="lang-btn" id="langToggle" type="button" onclick="toggleLang()">Bahasa Indonesia</button>
+  </div>
 
   <div class="hero">
     <div class="hero-id">
       <img class="avatar" src="photo.jpg" alt="David Fernando">
       <div>
         <h1>David Fernando</h1>
-        <div class="role">Computer Science student, BINUS University — Web &amp; SEO Engineer, automation builder</div>
+        <div class="role"
+          data-en="Computer Science student, BINUS University. Web &amp; SEO engineer and automation builder."
+          data-id="Mahasiswa Ilmu Komputer, Universitas BINUS. Web &amp; SEO engineer dan pembuat sistem otomasi.">Computer Science student, BINUS University. Web &amp; SEO engineer and automation builder.</div>
       </div>
     </div>
     <div class="contact">
-      <span>Tangerang, Banten, Indonesia</span>
+      <span data-en="Tangerang, Banten, Indonesia" data-id="Tangerang, Banten, Indonesia">Tangerang, Banten, Indonesia</span>
       <a href="mailto:davidfernando.mail@gmail.com">davidfernando.mail@gmail.com</a>
       <span>0812-1141-8258</span>
     </div>
   </div>
 
   <section class="summary">
-    <span class="eyebrow">Profile</span>
-    <p>Computer Science undergraduate (BINUS University, semester 4) who builds and ships working systems rather than only studying them. Currently running hands-on technical SEO, WordPress engineering, and content strategy for two live commercial websites — delivering measurable search and traffic outcomes on a daily cadence. Alongside that, independently built a WhatsApp AI agent for business automation, a face-recognition attendance system, and an NLP profanity detector. Comfortable across the stack: from Python/ML pipelines to PHP/WordPress to n8n/Docker automation, with real API and cloud-service integration experience.</p>
+    <span class="eyebrow" data-en="Profile" data-id="Profil">Profile</span>
+    <p
+      data-en="Computer Science undergraduate at BINUS University who builds and ships working systems rather than only studying them. Currently running hands-on technical SEO, WordPress engineering, and content strategy for two live commercial websites, delivering measurable search and traffic outcomes on a daily cadence. Alongside that, independently built a WhatsApp AI agent for business automation, a face-recognition attendance system, and an NLP profanity detector. Comfortable across the stack, from Python and ML pipelines to PHP and WordPress to n8n and Docker automation, with real API and cloud-service integration experience."
+      data-id="Mahasiswa S1 Ilmu Komputer di Universitas BINUS yang membangun dan menjalankan sistem nyata, bukan hanya mempelajarinya. Saat ini menangani SEO teknis, pengembangan WordPress, dan strategi konten secara langsung untuk dua situs web komersial yang aktif, dengan hasil pencarian dan trafik yang terukur setiap harinya. Selain itu, secara mandiri membangun AI Agent WhatsApp untuk otomasi bisnis, sistem absensi berbasis pengenalan wajah, dan sistem deteksi kata kasar berbasis NLP. Menguasai berbagai teknologi, mulai dari Python dan machine learning, PHP dan WordPress, hingga otomasi dengan n8n dan Docker, dengan pengalaman nyata mengintegrasikan API dan layanan cloud."
+    >Computer Science undergraduate at BINUS University who builds and ships working systems rather than only studying them. Currently running hands-on technical SEO, WordPress engineering, and content strategy for two live commercial websites, delivering measurable search and traffic outcomes on a daily cadence. Alongside that, independently built a WhatsApp AI agent for business automation, a face-recognition attendance system, and an NLP profanity detector. Comfortable across the stack, from Python and ML pipelines to PHP and WordPress to n8n and Docker automation, with real API and cloud-service integration experience.</p>
   </section>
 
   <section>
-    <span class="eyebrow">Experience</span>
+    <span class="eyebrow" data-en="Experience" data-id="Pengalaman">Experience</span>
 
-    <div class="entry featured" style="border-top:none;padding-top:24px;margin-top:16px;">
-      <div class="when">2026 — Present</div>
+    <div class="entry featured" style="border-top:none;margin-top:16px;">
+      <div class="when" data-en="2026 to Present" data-id="2026 hingga Sekarang">2026 to Present</div>
       <div>
-        <h3>Technical SEO &amp; WordPress Engineer</h3>
-        <div class="org">Freelance — HaganeRack &amp; Fasser (two live commercial sites)</div>
+        <h3 data-en="Technical SEO &amp; WordPress Engineer" data-id="Technical SEO &amp; WordPress Engineer">Technical SEO &amp; WordPress Engineer</h3>
+        <div class="org" data-en="Freelance, HaganeRack &amp; Fasser (two live commercial sites)" data-id="Freelance, HaganeRack &amp; Fasser (dua situs komersial aktif)">Freelance, HaganeRack &amp; Fasser (two live commercial sites)</div>
         <ul>
-          <li>Own end-to-end technical SEO for haganerack.com (rack server / data center equipment) and fasser.co.id (fiber optic equipment) — audits, on-page fixes, sitemap and indexing health, cannibalization resolution via redirects and keyword differentiation.</li>
-          <li>Ship production WordPress code directly against live sites: PHP, JS and CSS via Code Snippets/WPCode, Pods custom post types, theme-safe editing workflows with zero-downtime discipline.</li>
-          <li>Designed and built an interactive Rack Simulation Configurator lead-gen flow (guided onboarding tour, dynamic quote/PDF request capture) shipped to production.</li>
-          <li>Run a daily content and backlink cadence per site, tracked against Google Search Console and Analytics data — writing, publishing, and internally cross-linking SEO-driven articles.</li>
-          <li>Maintain a shared reporting system (Google Sheets) tracking articles, backlinks, and technical fixes across both properties for stakeholder review.</li>
+          <li data-en="Own end-to-end technical SEO for haganerack.com (rack server / data center equipment) and fasser.co.id (fiber optic equipment): audits, on-page fixes, sitemap and indexing health, and cannibalization resolution via redirects and keyword differentiation." data-id="Bertanggung jawab penuh atas SEO teknis haganerack.com (perangkat rack server / data center) dan fasser.co.id (perangkat fiber optik): audit, perbaikan on-page, kesehatan sitemap dan pengindeksan, serta penyelesaian kanibalisasi konten melalui redirect dan diferensiasi kata kunci.">Own end-to-end technical SEO for haganerack.com (rack server / data center equipment) and fasser.co.id (fiber optic equipment): audits, on-page fixes, sitemap and indexing health, and cannibalization resolution via redirects and keyword differentiation.</li>
+          <li data-en="Ship production WordPress code directly against live sites, including PHP, JS and CSS via Code Snippets/WPCode, Pods custom post types, and theme-safe editing workflows with zero-downtime discipline." data-id="Menerapkan kode WordPress langsung ke situs produksi, mencakup PHP, JS, dan CSS melalui Code Snippets/WPCode, custom post type dengan Pods, serta alur kerja pengeditan tema yang aman tanpa downtime.">Ship production WordPress code directly against live sites, including PHP, JS and CSS via Code Snippets/WPCode, Pods custom post types, and theme-safe editing workflows with zero-downtime discipline.</li>
+          <li data-en="Designed and built an interactive Rack Simulation Configurator lead-gen flow, including a guided onboarding tour and dynamic quote/PDF request capture, shipped to production." data-id="Merancang dan membangun fitur lead generation Rack Simulation Configurator interaktif, termasuk panduan onboarding dan permintaan penawaran/PDF otomatis, yang telah diterapkan ke produksi.">Designed and built an interactive Rack Simulation Configurator lead-gen flow, including a guided onboarding tour and dynamic quote/PDF request capture, shipped to production.</li>
+          <li data-en="Run a daily content and backlink cadence per site, tracked against Google Search Console and Analytics data, covering writing, publishing, and internal cross-linking of SEO-driven articles." data-id="Menjalankan ritme harian pembuatan konten dan backlink untuk masing-masing situs, dipantau melalui data Google Search Console dan Analytics, mencakup penulisan, publikasi, dan internal cross-linking artikel berbasis SEO.">Run a daily content and backlink cadence per site, tracked against Google Search Console and Analytics data, covering writing, publishing, and internal cross-linking of SEO-driven articles.</li>
+          <li data-en="Maintain a shared reporting system in Google Sheets, tracking articles, backlinks, and technical fixes across both properties for stakeholder review." data-id="Mengelola sistem pelaporan bersama di Google Sheets untuk melacak artikel, backlink, dan perbaikan teknis di kedua situs sebagai bahan tinjauan stakeholder.">Maintain a shared reporting system in Google Sheets, tracking articles, backlinks, and technical fixes across both properties for stakeholder review.</li>
         </ul>
         <div class="stack">
           <span class="chip">WordPress / PHP</span>
@@ -299,31 +383,31 @@ footer{
       <a class="site-card" href="https://haganerack.com" target="_blank" rel="noopener">
         <div class="site-browser"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="site-url">haganerack.com</span></div>
         <div class="site-body">
-          <h4>HaganeRack</h4>
-          <p>Rack server &amp; data center infrastructure — catalog, simulation configurator, technical SEO.</p>
-          <div class="site-visit">Visit live site →</div>
+          <div class="site-title"><img class="site-logo" src="Haganerack.png" alt="HaganeRack logo"><h4>HaganeRack</h4></div>
+          <p data-en="Rack server and data center infrastructure: catalog, simulation configurator, technical SEO." data-id="Infrastruktur rack server dan data center: katalog, simulation configurator, SEO teknis.">Rack server and data center infrastructure: catalog, simulation configurator, technical SEO.</p>
+          <div class="site-visit"><span data-en="Visit live site" data-id="Kunjungi situs">Visit live site</span> &#8594;</div>
         </div>
       </a>
       <a class="site-card" href="https://fasser.co.id" target="_blank" rel="noopener">
         <div class="site-browser"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="site-url">fasser.co.id</span></div>
         <div class="site-body">
-          <h4>Fasser</h4>
-          <p>Fiber optic equipment supplier — content strategy, on-page SEO, indexing health.</p>
-          <div class="site-visit">Visit live site →</div>
+          <div class="site-title"><img class="site-logo" src="Fasser.png" alt="Fasser logo"><h4>Fasser</h4></div>
+          <p data-en="Fiber optic equipment supplier: content strategy, on-page SEO, indexing health." data-id="Pemasok perangkat fiber optik: strategi konten, SEO on-page, kesehatan pengindeksan.">Fiber optic equipment supplier: content strategy, on-page SEO, indexing health.</p>
+          <div class="site-visit"><span data-en="Visit live site" data-id="Kunjungi situs">Visit live site</span> &#8594;</div>
         </div>
       </a>
     </div>
 
     <div class="entry">
-      <div class="when">Freelance<br>2026</div>
+      <div class="when"><span data-en="Freelance" data-id="Freelance">Freelance</span><br>2026</div>
       <div>
-        <h3>WhatsApp AI Agent for Business Automation</h3>
-        <div class="org">Independent freelance build</div>
+        <h3 data-en="WhatsApp AI Agent for Business Automation" data-id="AI Agent WhatsApp untuk Otomasi Bisnis">WhatsApp AI Agent for Business Automation</h3>
+        <div class="org" data-en="Independent freelance build" data-id="Proyek freelance mandiri">Independent freelance build</div>
         <ul>
-          <li>Built an end-to-end AI-powered WhatsApp automation system for a retail client using n8n, WAHA and Groq's Llama 3.3 70B.</li>
-          <li>Connected the agent to Google Sheets as a live product/order database so it answers stock and pricing questions accurately in real time.</li>
-          <li>Implemented a full automated ordering flow: customer data capture, order confirmation, database logging, and invoice delivery directly in WhatsApp.</li>
-          <li>Designed automatic owner notifications on every new transaction and deployed the full stack on Docker with an event-driven webhook architecture.</li>
+          <li data-en="Built an end-to-end AI-powered WhatsApp automation system for a retail client using n8n, WAHA, and Groq's Llama 3.3 70B." data-id="Membangun sistem otomasi WhatsApp berbasis AI secara end-to-end untuk klien ritel menggunakan n8n, WAHA, dan Groq Llama 3.3 70B.">Built an end-to-end AI-powered WhatsApp automation system for a retail client using n8n, WAHA, and Groq's Llama 3.3 70B.</li>
+          <li data-en="Connected the agent to Google Sheets as a live product/order database, so it answers stock and pricing questions accurately in real time." data-id="Menghubungkan agent dengan Google Sheets sebagai database produk/pesanan secara real-time, sehingga mampu menjawab pertanyaan stok dan harga secara akurat.">Connected the agent to Google Sheets as a live product/order database, so it answers stock and pricing questions accurately in real time.</li>
+          <li data-en="Implemented a full automated ordering flow covering customer data capture, order confirmation, database logging, and invoice delivery directly in WhatsApp." data-id="Menerapkan alur pemesanan otomatis penuh, mencakup pengumpulan data pelanggan, konfirmasi pesanan, pencatatan ke database, dan pengiriman invoice langsung melalui WhatsApp.">Implemented a full automated ordering flow covering customer data capture, order confirmation, database logging, and invoice delivery directly in WhatsApp.</li>
+          <li data-en="Designed automatic owner notifications on every new transaction and deployed the full stack on Docker with an event-driven webhook architecture." data-id="Merancang notifikasi otomatis kepada pemilik bisnis pada setiap transaksi baru dan men-deploy seluruh sistem menggunakan Docker dengan arsitektur webhook berbasis event.">Designed automatic owner notifications on every new transaction and deployed the full stack on Docker with an event-driven webhook architecture.</li>
         </ul>
         <div class="stack">
           <span class="chip">n8n</span>
@@ -337,63 +421,97 @@ footer{
   </section>
 
   <section>
-    <span class="eyebrow">Independent Projects</span>
+    <span class="eyebrow" data-en="Independent Projects" data-id="Proyek Mandiri">Independent Projects</span>
     <div class="projects">
       <div class="proj">
-        <span class="tag">Computer Vision</span>
-        <h4>Face-Recognition Attendance System</h4>
-        <p>Built solo in Python: LBPH and Haar Cascade for real-time face detection and identification. Handled data collection, model training, testing, and performance evaluation end to end — automated attendance logging.</p>
+        <span class="tag" data-en="Computer Vision" data-id="Computer Vision">Computer Vision</span>
+        <h4 data-en="Face-Recognition Attendance System" data-id="Sistem Absensi Berbasis Pengenalan Wajah">Face-Recognition Attendance System</h4>
+        <p data-en="Built solo in Python using LBPH and Haar Cascade for real-time face detection and identification. Handled data collection, model training, testing, and performance evaluation end to end, resulting in automated attendance logging." data-id="Dibangun sendiri menggunakan Python dengan metode LBPH dan Haar Cascade untuk deteksi dan identifikasi wajah secara real-time. Mengerjakan pengumpulan data, pelatihan model, pengujian, dan evaluasi performa secara menyeluruh, menghasilkan pencatatan kehadiran otomatis.">Built solo in Python using LBPH and Haar Cascade for real-time face detection and identification. Handled data collection, model training, testing, and performance evaluation end to end, resulting in automated attendance logging.</p>
+        <a class="proj-link" href="https://github.com/Davndo/vision-attendance-comp7116" target="_blank" rel="noopener"><span data-en="View source code" data-id="Lihat kode sumber">View source code</span> &#8594;</a>
       </div>
       <div class="proj">
-        <span class="tag">Natural Language Processing</span>
-        <h4>English Profanity Detection System</h4>
-        <p>Independent NLP project for detecting inappropriate language in English text — data cleaning, text analysis, and classification, with iterative testing to improve detection accuracy.</p>
+        <span class="tag" data-en="Natural Language Processing" data-id="Natural Language Processing">Natural Language Processing</span>
+        <h4 data-en="English Profanity Detection System" data-id="Sistem Deteksi Kata Kasar Bahasa Inggris">English Profanity Detection System</h4>
+        <p data-en="Independent NLP project for detecting inappropriate language in English text, including data cleaning, text analysis, and classification, with iterative testing to improve detection accuracy." data-id="Proyek NLP mandiri untuk mendeteksi kata-kata tidak pantas dalam teks berbahasa Inggris, mencakup pembersihan data, analisis teks, dan klasifikasi, dengan pengujian berulang untuk meningkatkan akurasi deteksi.">Independent NLP project for detecting inappropriate language in English text, including data cleaning, text analysis, and classification, with iterative testing to improve detection accuracy.</p>
+        <a class="proj-link" href="https://github.com/Davndo/profanity_detector" target="_blank" rel="noopener"><span data-en="View source code" data-id="Lihat kode sumber">View source code</span> &#8594;</a>
       </div>
     </div>
   </section>
 
   <section>
-    <span class="eyebrow">Skills</span>
+    <span class="eyebrow" data-en="Skills" data-id="Keahlian">Skills</span>
     <div class="skills">
       <div class="skill-row">
-        <div class="label">Web &amp; CMS</div>
+        <div class="label" data-en="Web &amp; CMS" data-id="Web &amp; CMS">Web &amp; CMS</div>
         <div class="items"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">Pods</span></div>
       </div>
       <div class="skill-row">
-        <div class="label">SEO</div>
+        <div class="label" data-en="SEO" data-id="SEO">SEO</div>
         <div class="items"><span class="chip">Technical SEO</span><span class="chip">Rank Math</span><span class="chip">Search Console</span><span class="chip">GA4</span><span class="chip">Content Strategy</span></div>
       </div>
       <div class="skill-row">
-        <div class="label">AI &amp; Automation</div>
+        <div class="label" data-en="AI &amp; Automation" data-id="AI &amp; Otomasi">AI &amp; Automation</div>
         <div class="items"><span class="chip">n8n</span><span class="chip">LLM Integration</span><span class="chip">Docker</span><span class="chip">Webhooks</span><span class="chip">API Integration</span></div>
       </div>
       <div class="skill-row">
-        <div class="label">Programming</div>
+        <div class="label" data-en="Programming" data-id="Pemrograman">Programming</div>
         <div class="items"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">NLP</span></div>
       </div>
     </div>
   </section>
 
   <section>
-    <span class="eyebrow">Education</span>
+    <span class="eyebrow" data-en="Education" data-id="Pendidikan">Education</span>
     <div class="edu">
-      <div class="edu-top">
-        <h3>BINUS University</h3>
-        <span class="when">2024 — Present</span>
+      <img class="edu-logo" src="binus-logo.png" alt="BINUS University logo">
+      <div class="edu-main">
+        <div class="edu-top">
+          <h3>BINUS University</h3>
+          <span class="when" data-en="2024 to Present" data-id="2024 hingga Sekarang">2024 to Present</span>
+        </div>
+        <div class="detail" data-en="S1 Computer Science" data-id="S1 Ilmu Komputer">S1 Computer Science</div>
       </div>
-      <div class="detail">S1 Computer Science · Semester 4</div>
     </div>
     <div class="edu">
-      <div class="edu-top">
-        <h3>Sekolah Lentera Harapan Curug</h3>
-        <span class="when">Graduated 2024</span>
+      <img class="edu-logo" src="school.jpg" alt="Sekolah Lentera Harapan Curug logo">
+      <div class="edu-main">
+        <div class="edu-top">
+          <h3>Sekolah Lentera Harapan Curug</h3>
+          <span class="when" data-en="Graduated 2024" data-id="Lulus 2024">Graduated 2024</span>
+        </div>
+        <div class="detail" data-en="Senior High School (SMA)" data-id="Sekolah Menengah Atas (SMA)">Senior High School (SMA)</div>
       </div>
-      <div class="detail">Sekolah Menengah Atas (SMA)</div>
     </div>
   </section>
 
   <footer>
-    David Fernando · Tangerang, Banten, Indonesia · davidfernando.mail@gmail.com
+    David Fernando &middot; Tangerang, Banten, Indonesia &middot; davidfernando.mail@gmail.com
   </footer>
 
 </div>
+
+<script>
+function applyLang(lang){
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    var text = lang === 'id' ? el.getAttribute('data-id') : el.getAttribute('data-en');
+    if(text !== null){ el.innerHTML = text; }
+  });
+  document.documentElement.lang = lang;
+  document.documentElement.setAttribute('data-lang', lang);
+  var btn = document.getElementById('langToggle');
+  btn.textContent = lang === 'id' ? 'English' : 'Bahasa Indonesia';
+  try{ localStorage.setItem('cv-lang', lang); }catch(e){}
+}
+function toggleLang(){
+  var current = document.documentElement.getAttribute('data-lang') || 'en';
+  applyLang(current === 'id' ? 'en' : 'id');
+}
+(function(){
+  var saved = 'en';
+  try{ saved = localStorage.getItem('cv-lang') || 'en'; }catch(e){}
+  if(saved === 'id'){ applyLang('id'); }
+})();
+</script>
+
+</body>
+</html>
