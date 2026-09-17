@@ -65,6 +65,23 @@ a{color:var(--accent);}
   padding-bottom:28px;
   margin-bottom:36px;
 }
+.hero-id{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+.avatar{
+  width:96px;
+  height:96px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--accent);
+  flex-shrink:0;
+}
+@media (max-width:560px){
+  .hero-id{gap:14px;}
+  .avatar{width:72px;height:72px;}
+}
 .hero h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-0.01em;}
 .hero .role{
   font-size:1.05rem;
@@ -233,9 +250,12 @@ footer{
 <div class="wrap">
 
   <div class="hero">
-    <div>
-      <h1>David Fernando</h1>
-      <div class="role">Computer Science student, BINUS University — Web &amp; SEO Engineer, automation builder</div>
+    <div class="hero-id">
+      <img class="avatar" src="photo.jpg" alt="David Fernando">
+      <div>
+        <h1>David Fernando</h1>
+        <div class="role">Computer Science student, BINUS University — Web &amp; SEO Engineer, automation builder</div>
+      </div>
     </div>
     <div class="contact">
       <span>Tangerang, Banten, Indonesia</span>
@@ -252,7 +272,7 @@ footer{
   <section>
     <span class="eyebrow">Experience</span>
 
-    <div class="entry featured" style="border-top:none;padding-top:24px;">
+    <div class="entry featured" style="border-top:none;padding-top:24px;margin-top:16px;">
       <div class="when">2026 — Present</div>
       <div>
         <h3>Technical SEO &amp; WordPress Engineer</h3>
