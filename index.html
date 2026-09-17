@@ -1,0 +1,379 @@
+<title>David Fernando</title>
+<style>
+:root{
+  --bg:#f6f5f2;
+  --surface:#ffffff;
+  --ink:#1c2321;
+  --ink-soft:#57615c;
+  --line:#e2dfd6;
+  --accent:#c4501f;
+  --accent-soft:#f3e2d6;
+  --mono-bg:#1c2321;
+  --mono-ink:#e9e6de;
+  --tag-bg:#eef1ec;
+  --tag-ink:#3d4a44;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141615;
+    --surface:#1c1f1d;
+    --ink:#eeece6;
+    --ink-soft:#a3ada6;
+    --line:#33372f;
+    --accent:#e07a45;
+    --accent-soft:#33251c;
+    --mono-bg:#0f1110;
+    --mono-ink:#d8dcd4;
+    --tag-bg:#242a25;
+    --tag-ink:#c2ccc4;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141615;
+  --surface:#1c1f1d;
+  --ink:#eeece6;
+  --ink-soft:#a3ada6;
+  --line:#33372f;
+  --accent:#e07a45;
+  --accent-soft:#33251c;
+  --mono-bg:#0f1110;
+  --mono-ink:#d8dcd4;
+  --tag-bg:#242a25;
+  --tag-ink:#c2ccc4;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Inter","Source Sans 3",system-ui,sans-serif;
+  padding:0 20px;
+  padding-block:56px;
+}
+.wrap{max-width:840px;margin:0 auto;}
+h1,h2,h3{font-family:"Fraunces","Georgia",serif;margin:0;text-wrap:balance;}
+a{color:var(--accent);}
+
+/* header */
+.hero{
+  display:flex;
+  flex-wrap:wrap;
+  gap:28px;
+  justify-content:space-between;
+  align-items:flex-end;
+  border-bottom:1px solid var(--line);
+  padding-bottom:28px;
+  margin-bottom:36px;
+}
+.hero h1{font-size:clamp(2.2rem,6vw,3.2rem);font-weight:600;letter-spacing:-0.01em;}
+.hero .role{
+  font-size:1.05rem;
+  color:var(--ink-soft);
+  margin-top:8px;
+}
+.contact{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  font-size:0.92rem;
+  color:var(--ink-soft);
+  text-align:right;
+}
+.contact a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);}
+.contact a:hover{border-color:var(--accent);color:var(--accent);}
+
+/* section */
+section{margin-bottom:44px;}
+.eyebrow{
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:10px;
+  display:block;
+}
+.summary p{
+  font-size:1.05rem;
+  line-height:1.65;
+  color:var(--ink);
+  max-width:65ch;
+}
+
+/* experience cards */
+.entry{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:20px;
+  padding:22px 0;
+  border-top:1px solid var(--line);
+}
+.entry:last-child{border-bottom:1px solid var(--line);}
+.entry .when{
+  font-size:0.85rem;
+  color:var(--ink-soft);
+  font-variant-numeric:tabular-nums;
+  padding-top:2px;
+}
+.entry h3{font-size:1.15rem;font-weight:600;}
+.entry .org{color:var(--accent);font-weight:600;font-size:0.95rem;margin-top:2px;}
+.entry ul{margin:12px 0 0;padding-left:18px;color:var(--ink-soft);line-height:1.6;font-size:0.96rem;}
+.entry ul li{margin-bottom:5px;}
+.entry .stack{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;}
+.chip{
+  background:var(--tag-bg);
+  color:var(--tag-ink);
+  font-size:0.78rem;
+  padding:4px 10px;
+  border-radius:100px;
+  font-weight:600;
+}
+.featured{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:24px;
+  position:relative;
+}
+.featured::before{
+  content:"Flagship engagement";
+  position:absolute;
+  top:-11px;
+  left:20px;
+  background:var(--accent);
+  color:#fff;
+  font-size:0.68rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:100px;
+}
+
+/* sites showcase */
+.sites{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:18px;
+}
+@media (max-width:600px){.sites{grid-template-columns:1fr;}}
+.site-card{
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+  background:var(--surface);
+  text-decoration:none;
+  display:block;
+  transition:border-color .15s ease;
+}
+.site-card:hover{border-color:var(--accent);}
+.site-browser{
+  background:var(--mono-bg);
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#565f57;}
+.site-url{
+  color:var(--mono-ink);
+  font-size:0.75rem;
+  font-family:"JetBrains Mono",monospace;
+  margin-left:6px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.site-body{padding:16px;}
+.site-body h4{margin:0 0 6px;font-family:"Fraunces",serif;font-size:1.05rem;color:var(--ink);}
+.site-body p{margin:0;font-size:0.88rem;color:var(--ink-soft);line-height:1.5;}
+.site-visit{margin-top:10px;font-size:0.8rem;color:var(--accent);font-weight:600;}
+
+/* projects grid */
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media (max-width:600px){.projects{grid-template-columns:1fr;}}
+.proj{
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:18px;
+  background:var(--surface);
+}
+.proj h4{font-size:1rem;font-weight:700;margin:0 0 4px;font-family:"Inter",sans-serif;}
+.proj .tag{font-size:0.72rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:block;}
+.proj p{font-size:0.88rem;color:var(--ink-soft);line-height:1.55;margin:0;}
+
+/* skills */
+.skills{display:flex;flex-direction:column;gap:14px;}
+.skill-row{display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:baseline;}
+@media (max-width:560px){.skill-row{grid-template-columns:1fr;gap:6px;}}
+.skill-row .label{font-size:0.82rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;}
+.skill-row .items{display:flex;flex-wrap:wrap;gap:8px;}
+
+/* education */
+.edu{display:flex;flex-direction:column;gap:2px;padding:18px 0;border-top:1px solid var(--line);}
+.edu:last-child{border-bottom:1px solid var(--line);}
+.edu-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.edu h3{font-size:1.05rem;}
+.edu .when{font-size:0.85rem;color:var(--ink-soft);}
+.edu .detail{font-size:0.9rem;color:var(--ink-soft);}
+
+footer{
+  text-align:center;
+  color:var(--ink-soft);
+  font-size:0.8rem;
+  margin-top:20px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <h1>David Fernando</h1>
+      <div class="role">Computer Science student, BINUS University — Web &amp; SEO Engineer, automation builder</div>
+    </div>
+    <div class="contact">
+      <span>Tangerang, Banten, Indonesia</span>
+      <a href="mailto:davidfernando.mail@gmail.com">davidfernando.mail@gmail.com</a>
+      <span>0812-1141-8258</span>
+    </div>
+  </div>
+
+  <section class="summary">
+    <span class="eyebrow">Profile</span>
+    <p>Computer Science undergraduate (BINUS University, semester 4) who builds and ships working systems rather than only studying them. Currently running hands-on technical SEO, WordPress engineering, and content strategy for two live commercial websites — delivering measurable search and traffic outcomes on a daily cadence. Alongside that, independently built a WhatsApp AI agent for business automation, a face-recognition attendance system, and an NLP profanity detector. Comfortable across the stack: from Python/ML pipelines to PHP/WordPress to n8n/Docker automation, with real API and cloud-service integration experience.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Experience</span>
+
+    <div class="entry featured" style="border-top:none;padding-top:24px;">
+      <div class="when">2026 — Present</div>
+      <div>
+        <h3>Technical SEO &amp; WordPress Engineer</h3>
+        <div class="org">Freelance — HaganeRack &amp; Fasser (two live commercial sites)</div>
+        <ul>
+          <li>Own end-to-end technical SEO for haganerack.com (rack server / data center equipment) and fasser.co.id (fiber optic equipment) — audits, on-page fixes, sitemap and indexing health, cannibalization resolution via redirects and keyword differentiation.</li>
+          <li>Ship production WordPress code directly against live sites: PHP, JS and CSS via Code Snippets/WPCode, Pods custom post types, theme-safe editing workflows with zero-downtime discipline.</li>
+          <li>Designed and built an interactive Rack Simulation Configurator lead-gen flow (guided onboarding tour, dynamic quote/PDF request capture) shipped to production.</li>
+          <li>Run a daily content and backlink cadence per site, tracked against Google Search Console and Analytics data — writing, publishing, and internally cross-linking SEO-driven articles.</li>
+          <li>Maintain a shared reporting system (Google Sheets) tracking articles, backlinks, and technical fixes across both properties for stakeholder review.</li>
+        </ul>
+        <div class="stack">
+          <span class="chip">WordPress / PHP</span>
+          <span class="chip">Rank Math SEO</span>
+          <span class="chip">Google Search Console</span>
+          <span class="chip">GA4</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Technical SEO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sites">
+      <a class="site-card" href="https://haganerack.com" target="_blank" rel="noopener">
+        <div class="site-browser"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="site-url">haganerack.com</span></div>
+        <div class="site-body">
+          <h4>HaganeRack</h4>
+          <p>Rack server &amp; data center infrastructure — catalog, simulation configurator, technical SEO.</p>
+          <div class="site-visit">Visit live site →</div>
+        </div>
+      </a>
+      <a class="site-card" href="https://fasser.co.id" target="_blank" rel="noopener">
+        <div class="site-browser"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="site-url">fasser.co.id</span></div>
+        <div class="site-body">
+          <h4>Fasser</h4>
+          <p>Fiber optic equipment supplier — content strategy, on-page SEO, indexing health.</p>
+          <div class="site-visit">Visit live site →</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="entry">
+      <div class="when">Freelance<br>2026</div>
+      <div>
+        <h3>WhatsApp AI Agent for Business Automation</h3>
+        <div class="org">Independent freelance build</div>
+        <ul>
+          <li>Built an end-to-end AI-powered WhatsApp automation system for a retail client using n8n, WAHA and Groq's Llama 3.3 70B.</li>
+          <li>Connected the agent to Google Sheets as a live product/order database so it answers stock and pricing questions accurately in real time.</li>
+          <li>Implemented a full automated ordering flow: customer data capture, order confirmation, database logging, and invoice delivery directly in WhatsApp.</li>
+          <li>Designed automatic owner notifications on every new transaction and deployed the full stack on Docker with an event-driven webhook architecture.</li>
+        </ul>
+        <div class="stack">
+          <span class="chip">n8n</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Groq LLM</span>
+          <span class="chip">Google Sheets API</span>
+          <span class="chip">Webhooks</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Independent Projects</span>
+    <div class="projects">
+      <div class="proj">
+        <span class="tag">Computer Vision</span>
+        <h4>Face-Recognition Attendance System</h4>
+        <p>Built solo in Python: LBPH and Haar Cascade for real-time face detection and identification. Handled data collection, model training, testing, and performance evaluation end to end — automated attendance logging.</p>
+      </div>
+      <div class="proj">
+        <span class="tag">Natural Language Processing</span>
+        <h4>English Profanity Detection System</h4>
+        <p>Independent NLP project for detecting inappropriate language in English text — data cleaning, text analysis, and classification, with iterative testing to improve detection accuracy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Skills</span>
+    <div class="skills">
+      <div class="skill-row">
+        <div class="label">Web &amp; CMS</div>
+        <div class="items"><span class="chip">WordPress</span><span class="chip">PHP</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span><span class="chip">Pods</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="label">SEO</div>
+        <div class="items"><span class="chip">Technical SEO</span><span class="chip">Rank Math</span><span class="chip">Search Console</span><span class="chip">GA4</span><span class="chip">Content Strategy</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="label">AI &amp; Automation</div>
+        <div class="items"><span class="chip">n8n</span><span class="chip">LLM Integration</span><span class="chip">Docker</span><span class="chip">Webhooks</span><span class="chip">API Integration</span></div>
+      </div>
+      <div class="skill-row">
+        <div class="label">Programming</div>
+        <div class="items"><span class="chip">Python</span><span class="chip">OpenCV</span><span class="chip">NLP</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Education</span>
+    <div class="edu">
+      <div class="edu-top">
+        <h3>BINUS University</h3>
+        <span class="when">2024 — Present</span>
+      </div>
+      <div class="detail">S1 Computer Science · Semester 4</div>
+    </div>
+    <div class="edu">
+      <div class="edu-top">
+        <h3>Sekolah Lentera Harapan Curug</h3>
+        <span class="when">Graduated 2024</span>
+      </div>
+      <div class="detail">Sekolah Menengah Atas (SMA)</div>
+    </div>
+  </section>
+
+  <footer>
+    David Fernando · Tangerang, Banten, Indonesia · davidfernando.mail@gmail.com
+  </footer>
+
+</div>
