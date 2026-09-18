@@ -59,6 +59,54 @@ a{color:var(--accent);}
   .fade-in{opacity:1;animation:none;transform:none;}
 }
 
+/* verse */
+.verse{
+  text-align:center;
+  padding:26px 20px 24px;
+  margin-top:22px;
+}
+.verse-mark{
+  font-family:"Fraunces","Georgia",serif;
+  font-size:2.6rem;
+  line-height:1;
+  color:var(--accent);
+  opacity:0.55;
+  display:block;
+  margin-bottom:4px;
+}
+.verse-text{
+  font-family:"Fraunces","Georgia",serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:1.28rem;
+  line-height:1.5;
+  color:var(--ink);
+  max-width:46ch;
+  margin:0 auto;
+}
+.verse-ref{
+  margin-top:12px;
+  font-size:0.76rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:700;
+}
+.verse-rule{
+  width:36px;
+  height:2px;
+  background:var(--accent);
+  opacity:0.5;
+  border:none;
+  margin:18px auto 0;
+  border-radius:2px;
+}
+@media (max-width:480px){
+  .verse{padding:18px 12px 16px;}
+  .verse-mark{font-size:2.1rem;}
+  .verse-text{font-size:1.08rem;}
+}
+
 /* language toggle */
 .langbar{display:flex;justify-content:flex-end;padding-top:22px;margin-bottom:14px;}
 .lang-btn{
@@ -372,6 +420,13 @@ footer{
 
 <div class="wrap">
 
+  <div class="verse fade-in d1">
+    <span class="verse-mark" aria-hidden="true">&#8220;</span>
+    <p class="verse-text" data-en="Whatever you do, work at it with all your heart, as working for the Lord, not for human masters." data-id="Apa pun juga yang kamu perbuat, perbuatlah dengan segenap hatimu seperti untuk Tuhan dan bukan untuk manusia.">Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.</p>
+    <div class="verse-ref" data-en="Colossians 3:23" data-id="Kolose 3:23">Colossians 3:23</div>
+    <hr class="verse-rule">
+  </div>
+
   <div class="langbar">
     <button class="lang-btn" id="langToggle" type="button" onclick="toggleLang()">Bahasa Indonesia</button>
   </div>
@@ -382,8 +437,8 @@ footer{
       <div>
         <h1>David Fernando</h1>
         <div class="role"
-          data-en="Computer Science student, BINUS University. Web &amp; SEO engineer and automation builder."
-          data-id="Mahasiswa Ilmu Komputer, Universitas BINUS. Web &amp; SEO engineer dan pembuat sistem otomasi.">Computer Science student, BINUS University. Web &amp; SEO engineer and automation builder.</div>
+          data-en="Computer Science student at BINUS University who builds websites, SEO systems, and automation tools."
+          data-id="Mahasiswa Ilmu Komputer di Universitas BINUS yang suka bikin website, sistem SEO, dan tools otomasi.">Computer Science student at BINUS University who builds websites, SEO systems, and automation tools.</div>
       </div>
     </div>
     <div class="contact">
@@ -409,9 +464,9 @@ footer{
   <section class="summary fade-in d2">
     <span class="eyebrow" data-en="Profile" data-id="Profil">Profile</span>
     <p
-      data-en="Computer Science undergraduate at BINUS University who builds and ships working systems rather than only studying them. Currently running hands-on technical SEO, WordPress engineering, and content strategy for two live commercial websites, delivering measurable search and traffic outcomes on a daily cadence. Alongside that, independently built a WhatsApp AI agent for business automation, a face-recognition attendance system, and an NLP profanity detector. Comfortable across the stack, from Python and ML pipelines to PHP and WordPress to n8n and Docker automation, with real API and cloud-service integration experience."
-      data-id="Mahasiswa S1 Ilmu Komputer di Universitas BINUS yang membangun dan menjalankan sistem nyata, bukan hanya mempelajarinya. Saat ini menangani SEO teknis, pengembangan WordPress, dan strategi konten secara langsung untuk dua situs web komersial yang aktif, dengan hasil pencarian dan trafik yang terukur setiap harinya. Selain itu, secara mandiri membangun AI Agent WhatsApp untuk otomasi bisnis, sistem absensi berbasis pengenalan wajah, dan sistem deteksi kata kasar berbasis NLP. Menguasai berbagai teknologi, mulai dari Python dan machine learning, PHP dan WordPress, hingga otomasi dengan n8n dan Docker, dengan pengalaman nyata mengintegrasikan API dan layanan cloud."
-    >Computer Science undergraduate at BINUS University who builds and ships working systems rather than only studying them. Currently running hands-on technical SEO, WordPress engineering, and content strategy for two live commercial websites, delivering measurable search and traffic outcomes on a daily cadence. Alongside that, independently built a WhatsApp AI agent for business automation, a face-recognition attendance system, and an NLP profanity detector. Comfortable across the stack, from Python and ML pipelines to PHP and WordPress to n8n and Docker automation, with real API and cloud-service integration experience.</p>
+      data-en="I'm a Computer Science student at BINUS University, and I'd rather build things than just read about them. Right now I handle the technical SEO, WordPress development, content, and automation (including a WhatsApp ordering bot) for two live business websites, HaganeRack and Fasser, and I work on them pretty much every day. On my own time I've also built a face-recognition attendance system and a tool that detects inappropriate language in English text. I move comfortably between Python, PHP, WordPress, and automation tools like n8n and Docker, and I've had real hands-on experience hooking things up to APIs and cloud services."
+      data-id="Saya mahasiswa Ilmu Komputer di Universitas BINUS, dan saya lebih suka langsung membangun sesuatu daripada cuma membacanya. Sekarang saya yang pegang SEO teknis, pengembangan WordPress, konten, sampai otomasi (termasuk bot pemesanan WhatsApp) untuk dua website bisnis yang sudah live, HaganeRack dan Fasser, dan saya kerjakan hampir setiap hari. Di luar itu saya juga sempat bikin sistem absensi pakai pengenalan wajah dan alat yang bisa mendeteksi kata-kata kasar dalam teks bahasa Inggris. Saya cukup nyaman gonta-ganti antara Python, PHP, WordPress, sampai tools otomasi seperti n8n dan Docker, dan sudah cukup terbiasa mengutak-atik integrasi API dan layanan cloud."
+    >I'm a Computer Science student at BINUS University, and I'd rather build things than just read about them. Right now I handle the technical SEO, WordPress development, content, and automation (including a WhatsApp ordering bot) for two live business websites, HaganeRack and Fasser, and I work on them pretty much every day. On my own time I've also built a face-recognition attendance system and a tool that detects inappropriate language in English text. I move comfortably between Python, PHP, WordPress, and automation tools like n8n and Docker, and I've had real hands-on experience hooking things up to APIs and cloud services.</p>
   </section>
 
   <section class="fade-in d3">
@@ -423,11 +478,13 @@ footer{
         <h3 data-en="Technical SEO &amp; WordPress Engineer" data-id="Technical SEO &amp; WordPress Engineer">Technical SEO &amp; WordPress Engineer</h3>
         <div class="org" data-en="Freelance, HaganeRack &amp; Fasser (two live commercial sites)" data-id="Freelance, HaganeRack &amp; Fasser (dua situs komersial aktif)">Freelance, HaganeRack &amp; Fasser (two live commercial sites)</div>
         <ul>
-          <li data-en="Own end-to-end technical SEO for haganerack.com (rack server / data center equipment) and fasser.co.id (fiber optic equipment): audits, on-page fixes, sitemap and indexing health, and cannibalization resolution via redirects and keyword differentiation." data-id="Bertanggung jawab penuh atas SEO teknis haganerack.com (perangkat rack server / data center) dan fasser.co.id (perangkat fiber optik): audit, perbaikan on-page, kesehatan sitemap dan pengindeksan, serta penyelesaian kanibalisasi konten melalui redirect dan diferensiasi kata kunci.">Own end-to-end technical SEO for haganerack.com (rack server / data center equipment) and fasser.co.id (fiber optic equipment): audits, on-page fixes, sitemap and indexing health, and cannibalization resolution via redirects and keyword differentiation.</li>
-          <li data-en="Ship production WordPress code directly against live sites, including PHP, JS and CSS via Code Snippets/WPCode, Pods custom post types, and theme-safe editing workflows with zero-downtime discipline." data-id="Menerapkan kode WordPress langsung ke situs produksi, mencakup PHP, JS, dan CSS melalui Code Snippets/WPCode, custom post type dengan Pods, serta alur kerja pengeditan tema yang aman tanpa downtime.">Ship production WordPress code directly against live sites, including PHP, JS and CSS via Code Snippets/WPCode, Pods custom post types, and theme-safe editing workflows with zero-downtime discipline.</li>
-          <li data-en="Designed and built an interactive Rack Simulation Configurator lead-gen flow, including a guided onboarding tour and dynamic quote/PDF request capture, shipped to production." data-id="Merancang dan membangun fitur lead generation Rack Simulation Configurator interaktif, termasuk panduan onboarding dan permintaan penawaran/PDF otomatis, yang telah diterapkan ke produksi.">Designed and built an interactive Rack Simulation Configurator lead-gen flow, including a guided onboarding tour and dynamic quote/PDF request capture, shipped to production.</li>
-          <li data-en="Run a daily content and backlink cadence per site, tracked against Google Search Console and Analytics data, covering writing, publishing, and internal cross-linking of SEO-driven articles." data-id="Menjalankan ritme harian pembuatan konten dan backlink untuk masing-masing situs, dipantau melalui data Google Search Console dan Analytics, mencakup penulisan, publikasi, dan internal cross-linking artikel berbasis SEO.">Run a daily content and backlink cadence per site, tracked against Google Search Console and Analytics data, covering writing, publishing, and internal cross-linking of SEO-driven articles.</li>
-          <li data-en="Maintain a shared reporting system in Google Sheets, tracking articles, backlinks, and technical fixes across both properties for stakeholder review." data-id="Mengelola sistem pelaporan bersama di Google Sheets untuk melacak artikel, backlink, dan perbaikan teknis di kedua situs sebagai bahan tinjauan stakeholder.">Maintain a shared reporting system in Google Sheets, tracking articles, backlinks, and technical fixes across both properties for stakeholder review.</li>
+          <li data-en="Handle technical SEO for both haganerack.com and fasser.co.id, from audits and on-page fixes to keeping the sitemap and indexing healthy. When two pages end up competing for the same search term, I fix it with redirects or by giving each one its own angle." data-id="Pegang SEO teknis untuk haganerack.com dan fasser.co.id, mulai dari audit dan perbaikan on-page sampai jaga sitemap dan indexing tetap sehat. Kalau ada dua halaman yang malah rebutan di kata kunci yang sama, saya benerin pakai redirect atau kasih masing-masing sudut pandang sendiri.">Handle technical SEO for both haganerack.com and fasser.co.id, from audits and on-page fixes to keeping the sitemap and indexing healthy. When two pages end up competing for the same search term, I fix it with redirects or by giving each one its own angle.</li>
+          <li data-en="Write and deploy WordPress code directly on the live sites (PHP, JS, CSS), mostly through Code Snippets/WPCode and Pods, and I'm careful to never break anything while doing it." data-id="Nulis dan deploy kode WordPress langsung ke situs yang sudah live (PHP, JS, CSS), kebanyakan lewat Code Snippets/WPCode dan Pods, dan selalu hati-hati supaya situs nggak sempat down.">Write and deploy WordPress code directly on the live sites (PHP, JS, CSS), mostly through Code Snippets/WPCode and Pods, and I'm careful to never break anything while doing it.</li>
+          <li data-en="Designed and built an interactive Rack Simulation tool that walks visitors through configuring a setup and requesting a quote or PDF, now live on the site." data-id="Merancang dan membangun fitur Rack Simulation interaktif yang menuntun pengunjung mengatur konfigurasi mereka sendiri sampai minta penawaran atau PDF, sekarang sudah aktif di situs.">Designed and built an interactive Rack Simulation tool that walks visitors through configuring a setup and requesting a quote or PDF, now live on the site.</li>
+          <li data-en="Publish new content and backlinks for both sites on a daily basis, checking what's actually working against Search Console and Analytics data instead of just guessing." data-id="Publish konten dan backlink baru untuk kedua situs tiap hari, dan selalu cek apa yang beneran berhasil lewat data Search Console dan Analytics, bukan cuma nebak-nebak.">Publish new content and backlinks for both sites on a daily basis, checking what's actually working against Search Console and Analytics data instead of just guessing.</li>
+          <li data-en="Keep a shared Google Sheets log of every article, backlink, and technical fix so the whole team can see what's been done." data-id="Rutin catat semua artikel, backlink, dan perbaikan teknis di Google Sheets bersama, biar tim lain juga bisa lihat progresnya.">Keep a shared Google Sheets log of every article, backlink, and technical fix so the whole team can see what's been done.</li>
+          <li data-en="Built a WhatsApp bot that handles customer orders automatically, using n8n, WAHA, and Groq's Llama 3.3 70B, wired up to a live Google Sheet so it always has the right stock and prices." data-id="Bikin bot WhatsApp yang bisa proses pesanan pelanggan secara otomatis, pakai n8n, WAHA, dan Groq Llama 3.3 70B, terhubung ke Google Sheet secara real-time biar stok dan harganya selalu update.">Built a WhatsApp bot that handles customer orders automatically, using n8n, WAHA, and Groq's Llama 3.3 70B, wired up to a live Google Sheet so it always has the right stock and prices.</li>
+          <li data-en="The bot takes customer info, confirms the order, logs everything, and sends the invoice, then pings the owner about every new sale. Runs on Docker in the background." data-id="Bot-nya ambil data pelanggan, konfirmasi pesanan, catat semuanya, terus kirim invoice, lalu kasih notif ke pemilik tiap ada penjualan baru. Jalan di Docker di belakang layar.">The bot takes customer info, confirms the order, logs everything, and sends the invoice, then pings the owner about every new sale. Runs on Docker in the background.</li>
         </ul>
         <div class="stack">
           <span class="chip">WordPress / PHP</span>
@@ -436,6 +493,10 @@ footer{
           <span class="chip">GA4</span>
           <span class="chip">JavaScript</span>
           <span class="chip">Technical SEO</span>
+          <span class="chip">n8n</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Groq LLM</span>
+          <span class="chip">Webhooks</span>
         </div>
       </div>
     </div>
@@ -445,7 +506,7 @@ footer{
         <div class="site-browser"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="site-url">haganerack.com</span></div>
         <div class="site-body">
           <h4>HaganeRack</h4>
-          <p data-en="Rack server and data center infrastructure: catalog, simulation configurator, technical SEO." data-id="Infrastruktur rack server dan data center: katalog, simulation configurator, SEO teknis.">Rack server and data center infrastructure: catalog, simulation configurator, technical SEO.</p>
+          <p data-en="Sells rack servers and data center gear. I work on the catalog, the simulation tool, and the SEO side." data-id="Jualan rack server dan perlengkapan data center. Saya pegang bagian katalog, fitur simulasi, sampai SEO-nya.">Sells rack servers and data center gear. I work on the catalog, the simulation tool, and the SEO side.</p>
           <div class="site-visit"><span data-en="Visit live site" data-id="Kunjungi situs">Visit live site</span> &#8594;</div>
         </div>
       </a>
@@ -453,32 +514,12 @@ footer{
         <div class="site-browser"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="site-url">fasser.co.id</span></div>
         <div class="site-body">
           <h4>Fasser</h4>
-          <p data-en="Fiber optic equipment supplier: content strategy, on-page SEO, indexing health." data-id="Pemasok perangkat fiber optik: strategi konten, SEO on-page, kesehatan pengindeksan.">Fiber optic equipment supplier: content strategy, on-page SEO, indexing health.</p>
+          <p data-en="Sells fiber optic equipment. I handle the content strategy, on-page SEO, and making sure pages actually get indexed." data-id="Jualan perangkat fiber optik. Saya urus strategi kontennya, SEO on-page, sampai pastikan halamannya keindex.">Sells fiber optic equipment. I handle the content strategy, on-page SEO, and making sure pages actually get indexed.</p>
           <div class="site-visit"><span data-en="Visit live site" data-id="Kunjungi situs">Visit live site</span> &#8594;</div>
         </div>
       </a>
     </div>
 
-    <div class="entry">
-      <div class="when"><span data-en="Freelance" data-id="Freelance">Freelance</span><br>2026</div>
-      <div>
-        <h3 data-en="WhatsApp AI Agent for Business Automation" data-id="AI Agent WhatsApp untuk Otomasi Bisnis">WhatsApp AI Agent for Business Automation</h3>
-        <div class="org" data-en="Independent freelance build" data-id="Proyek freelance mandiri">Independent freelance build</div>
-        <ul>
-          <li data-en="Built an end-to-end AI-powered WhatsApp automation system for a retail client using n8n, WAHA, and Groq's Llama 3.3 70B." data-id="Membangun sistem otomasi WhatsApp berbasis AI secara end-to-end untuk klien ritel menggunakan n8n, WAHA, dan Groq Llama 3.3 70B.">Built an end-to-end AI-powered WhatsApp automation system for a retail client using n8n, WAHA, and Groq's Llama 3.3 70B.</li>
-          <li data-en="Connected the agent to Google Sheets as a live product/order database, so it answers stock and pricing questions accurately in real time." data-id="Menghubungkan agent dengan Google Sheets sebagai database produk/pesanan secara real-time, sehingga mampu menjawab pertanyaan stok dan harga secara akurat.">Connected the agent to Google Sheets as a live product/order database, so it answers stock and pricing questions accurately in real time.</li>
-          <li data-en="Implemented a full automated ordering flow covering customer data capture, order confirmation, database logging, and invoice delivery directly in WhatsApp." data-id="Menerapkan alur pemesanan otomatis penuh, mencakup pengumpulan data pelanggan, konfirmasi pesanan, pencatatan ke database, dan pengiriman invoice langsung melalui WhatsApp.">Implemented a full automated ordering flow covering customer data capture, order confirmation, database logging, and invoice delivery directly in WhatsApp.</li>
-          <li data-en="Designed automatic owner notifications on every new transaction and deployed the full stack on Docker with an event-driven webhook architecture." data-id="Merancang notifikasi otomatis kepada pemilik bisnis pada setiap transaksi baru dan men-deploy seluruh sistem menggunakan Docker dengan arsitektur webhook berbasis event.">Designed automatic owner notifications on every new transaction and deployed the full stack on Docker with an event-driven webhook architecture.</li>
-        </ul>
-        <div class="stack">
-          <span class="chip">n8n</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Groq LLM</span>
-          <span class="chip">Google Sheets API</span>
-          <span class="chip">Webhooks</span>
-        </div>
-      </div>
-    </div>
   </section>
 
   <section class="fade-in d4">
@@ -487,13 +528,13 @@ footer{
       <div class="proj">
         <span class="tag" data-en="Computer Vision" data-id="Computer Vision">Computer Vision</span>
         <h4 data-en="Face-Recognition Attendance System" data-id="Sistem Absensi Berbasis Pengenalan Wajah">Face-Recognition Attendance System</h4>
-        <p data-en="Built solo in Python using LBPH and Haar Cascade for real-time face detection and identification. Handled data collection, model training, testing, and performance evaluation end to end, resulting in automated attendance logging." data-id="Dibangun sendiri menggunakan Python dengan metode LBPH dan Haar Cascade untuk deteksi dan identifikasi wajah secara real-time. Mengerjakan pengumpulan data, pelatihan model, pengujian, dan evaluasi performa secara menyeluruh, menghasilkan pencatatan kehadiran otomatis.">Built solo in Python using LBPH and Haar Cascade for real-time face detection and identification. Handled data collection, model training, testing, and performance evaluation end to end, resulting in automated attendance logging.</p>
+        <p data-en="A solo project where I used Python (LBPH and Haar Cascade) to detect and recognize faces in real time. I did everything myself, from collecting the training data to testing the model, and ended up with a system that logs attendance on its own." data-id="Proyek yang saya kerjakan sendiri, pakai Python (LBPH dan Haar Cascade) untuk mendeteksi dan mengenali wajah secara real-time. Semuanya saya kerjakan sendiri, mulai dari kumpulin data latih sampai uji coba modelnya, dan hasilnya sistem yang bisa catat kehadiran otomatis.">A solo project where I used Python (LBPH and Haar Cascade) to detect and recognize faces in real time. I did everything myself, from collecting the training data to testing the model, and ended up with a system that logs attendance on its own.</p>
         <a class="proj-link" href="https://github.com/Davndo/vision-attendance-comp7116" target="_blank" rel="noopener"><span data-en="View source code" data-id="Lihat kode sumber">View source code</span> &#8594;</a>
       </div>
       <div class="proj">
         <span class="tag" data-en="Natural Language Processing" data-id="Natural Language Processing">Natural Language Processing</span>
         <h4 data-en="English Profanity Detection System" data-id="Sistem Deteksi Kata Kasar Bahasa Inggris">English Profanity Detection System</h4>
-        <p data-en="Independent NLP project for detecting inappropriate language in English text, including data cleaning, text analysis, and classification, with iterative testing to improve detection accuracy." data-id="Proyek NLP mandiri untuk mendeteksi kata-kata tidak pantas dalam teks berbahasa Inggris, mencakup pembersihan data, analisis teks, dan klasifikasi, dengan pengujian berulang untuk meningkatkan akurasi deteksi.">Independent NLP project for detecting inappropriate language in English text, including data cleaning, text analysis, and classification, with iterative testing to improve detection accuracy.</p>
+        <p data-en="A side project that flags inappropriate language in English text. I cleaned the data, analyzed and classified it, then kept testing and tweaking it until the detection got noticeably more accurate." data-id="Proyek sampingan yang bisa mendeteksi kata-kata kasar dalam teks bahasa Inggris. Saya bersihkan datanya, analisis dan klasifikasikan, lalu terus uji coba dan diperbaiki sampai akurasi deteksinya makin bagus.">A side project that flags inappropriate language in English text. I cleaned the data, analyzed and classified it, then kept testing and tweaking it until the detection got noticeably more accurate.</p>
         <a class="proj-link" href="https://github.com/Davndo/profanity_detector" target="_blank" rel="noopener"><span data-en="View source code" data-id="Lihat kode sumber">View source code</span> &#8594;</a>
       </div>
     </div>
