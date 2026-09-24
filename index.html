@@ -211,9 +211,145 @@ section{margin-bottom:44px;}
   font-size:1.06rem;
   line-height:1.7;
   color:var(--ink);
-  max-width:65ch;
+  max-width:none;
+  width:100%;
+  margin-inline:0;
   text-align:justify;
   text-justify:inter-word;
+  hyphens:auto;
+}
+
+/* AI section */
+.ai{position:relative;}
+.ai-type-wrap{
+  font-family:"Fraunces","Georgia",serif;
+  font-weight:600;
+  font-size:clamp(1.5rem,5vw,2.3rem);
+  line-height:1.2;
+  letter-spacing:-0.01em;
+  min-height:2.5em;
+  margin:0 0 14px;
+}
+.ai-type-wrap .typed{color:var(--ink);}
+.ai-cursor{
+  display:inline-block;
+  width:3px;
+  height:1em;
+  margin-left:4px;
+  vertical-align:-0.12em;
+  background:var(--accent);
+  animation:blink 1s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0;}}
+.ai-lead{
+  font-size:1.06rem;
+  line-height:1.7;
+  color:var(--ink);
+  text-align:justify;
+  text-justify:inter-word;
+  margin:0 0 22px;
+}
+.ai-quote{
+  position:relative;
+  overflow:hidden;
+  background:var(--mono-bg);
+  color:var(--mono-ink);
+  border-radius:16px;
+  padding:34px 30px 26px;
+  box-shadow:var(--shadow-hover);
+  margin:0 0 22px;
+}
+.ai-quote .qmark{
+  font-family:"Fraunces","Georgia",serif;
+  font-size:4rem;
+  line-height:0.6;
+  color:var(--accent);
+  display:block;
+  margin-bottom:10px;
+}
+.ai-quote blockquote{
+  margin:0;
+  font-family:"Fraunces","Georgia",serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(1.25rem,3.6vw,1.75rem);
+  line-height:1.4;
+  position:relative;
+}
+.ai-quote blockquote b{color:#f2a48c;font-style:normal;font-weight:700;}
+.ai-quote figcaption{
+  margin-top:18px;
+  font-size:0.78rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:#f2a48c;
+  position:relative;
+}
+.ai-quote figcaption a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(242,164,140,0.5);}
+.ai-quote figcaption a:hover{border-color:#f2a48c;}
+.ai-equation{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:14px 18px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:20px 22px;
+  margin:0 0 22px;
+}
+.ai-eq-side{display:flex;align-items:center;gap:10px;font-weight:700;font-size:0.92rem;color:var(--ink);}
+.ai-eq-op{font-family:"Fraunces",serif;font-size:1.6rem;color:var(--accent);font-weight:600;}
+.ai-people{display:flex;gap:5px;flex-wrap:wrap;}
+.ai-person{
+  width:22px;
+  height:22px;
+  color:#c9c2b7;
+  transition:color .35s ease, transform .35s ease;
+  transition-delay:calc(var(--i) * 90ms);
+  transform:scale(.85);
+}
+.ai-equation.on .ai-person{color:var(--accent);transform:scale(1);}
+.ai-badge{
+  background:var(--accent);
+  color:#fff;
+  font-size:0.72rem;
+  letter-spacing:0.1em;
+  font-weight:700;
+  padding:6px 12px;
+  border-radius:100px;
+}
+.ai-steps{list-style:none;margin:0 0 18px;padding:0;border-top:1px solid var(--line);}
+.ai-steps li{
+  display:grid;
+  grid-template-columns:64px 1fr;
+  gap:6px 16px;
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+  align-items:start;
+}
+.ai-num{
+  font-family:"Fraunces","Georgia",serif;
+  font-size:2rem;
+  font-weight:600;
+  line-height:1;
+  color:var(--accent);
+  font-variant-numeric:lining-nums;
+}
+.ai-steps h4{margin:2px 0 4px;font-family:"Inter",sans-serif;font-size:1rem;font-weight:700;color:var(--ink);}
+.ai-steps p{margin:0;font-size:0.96rem;line-height:1.65;color:var(--ink-soft);max-width:60ch;}
+.ai-close{
+  margin:0;
+  font-family:"Fraunces","Georgia",serif;
+  font-style:italic;
+  font-size:1.08rem;
+  color:var(--ink);
+}
+@media (max-width:600px){.ai-quote{padding:28px 20px 22px;}.ai-steps li{grid-template-columns:44px 1fr;}.ai-num{font-size:1.5rem;}}
+@media (prefers-reduced-motion: reduce){
+  .ai-cursor{animation:none;}
+  .ai-person{transition:none;color:var(--accent);transform:none;}
 }
 
 /* experience cards */
@@ -331,7 +467,7 @@ section{margin-bottom:44px;}
   box-shadow:var(--shadow);
   transition:transform .18s ease, box-shadow .18s ease;
 }
-.proj:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+
 .proj h4{font-size:1rem;font-weight:700;margin:0 0 4px;font-family:"Inter",sans-serif;}
 .proj .tag{font-size:0.72rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:block;}
 .proj p{font-size:0.88rem;color:var(--ink-soft);line-height:1.55;margin:0 0 12px;text-align:justify;text-justify:inter-word;}
@@ -478,7 +614,80 @@ footer{
     >I'm a Computer Science student at BINUS University, and I'd rather build things than just read about them. Right now I handle the technical SEO, WordPress development, content, and automation (including a WhatsApp ordering bot) for two live business websites, HaganeRack and Fasser, and I work on them pretty much every day. On my own time I've also built a face-recognition attendance system and a tool that detects inappropriate language in English text. I move comfortably between Python, PHP, WordPress, and automation tools like n8n and Docker, and I've had real hands-on experience hooking things up to APIs and cloud services.</p>
   </section>
 
-  <section class="fade-in d3">
+  <section class="ai fade-in d3" id="ai">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="ppl" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4.2" fill="currentColor"/><path d="M3.5 21c0-4.7 3.8-8 8.5-8s8.5 3.3 8.5 8v.5h-17V21Z" fill="currentColor"/></symbol>
+    </svg>
+    <span class="eyebrow" data-en="AI-Powered Workflow" data-id="Cara Kerja Berbasis AI">AI-Powered Workflow</span>
+
+    <div class="ai-type-wrap" aria-live="off"><span class="typed" id="aiTyped"></span><span class="ai-cursor" aria-hidden="true"></span></div>
+
+    <p class="ai-lead"
+      data-en="I use AI in almost everything I build, and I don't hide it. It lets one person work at the pace of a small team. What it can't do is decide for me: I choose what is worth building, and I check the results against real numbers before anything goes live."
+      data-id="Hampir semua yang saya kerjakan saya bantu dengan AI, dan saya tidak menyembunyikannya. Dengan begitu satu orang bisa bekerja secepat sebuah tim kecil. Yang tidak bisa diserahkan ke AI adalah menimbang: saya yang memutuskan apa yang layak dibuat, dan hasilnya saya cek dengan data asli sebelum tayang.">I use AI in almost everything I build, and I don't hide it. It lets one person work at the pace of a small team. What it can't do is decide for me: I choose what is worth building, and I check the results against real numbers before anything goes live.</p>
+
+    <figure class="ai-quote" style="margin-left:0;margin-right:0;">
+      <span class="qmark" aria-hidden="true">&#8220;</span>
+      <blockquote
+        data-en="If you <b>10x</b> a single developer, then 10 developers can do <b>100x</b>."
+        data-id="Jika Anda membuat satu developer <b>10x</b> lebih produktif, maka 10 developer bisa menghasilkan <b>100x</b>.">If you <b>10x</b> a single developer, then 10 developers can do <b>100x</b>.</blockquote>
+      <figcaption>Thomas Dohmke &middot; <span data-en="CEO of GitHub at the time" data-id="saat itu CEO GitHub">CEO of GitHub at the time</span> &middot; <a href="https://www.aol.com/github-ceo-says-smartest-companies-080701608.html" target="_blank" rel="noopener"><span data-en="Business Insider, 2025" data-id="Business Insider, 2025">Business Insider, 2025</span></a></figcaption>
+    </figure>
+
+    <div class="ai-equation" id="aiEq" role="img" aria-label="One person plus AI equals the output of ten people">
+      <div class="ai-eq-side">
+        <svg class="ai-person" style="--i:0;color:var(--ink);transform:none;" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+        <span data-en="1 person" data-id="1 orang">1 person</span>
+      </div>
+      <span class="ai-eq-op">+</span>
+      <span class="ai-badge">AI</span>
+      <span class="ai-eq-op">=</span>
+      <div class="ai-eq-side">
+        <div class="ai-people">
+          <svg class="ai-person" style="--i:0" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:1" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:2" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:3" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:4" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:5" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:6" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:7" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:8" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+          <svg class="ai-person" style="--i:9" viewBox="0 0 24 24"><use href="#ppl"/></svg>
+        </div>
+        <span data-en="the output of 10" data-id="output 10 orang">the output of 10</span>
+      </div>
+    </div>
+
+    <ol class="ai-steps">
+      <li>
+        <span class="ai-num" aria-hidden="true">01</span>
+        <div>
+          <h4 data-en="Decide" data-id="Tentukan">Decide</h4>
+          <p data-en="I pick the problem and what a good result looks like. That part stays with me." data-id="Saya yang memilih masalahnya dan menentukan seperti apa hasil yang baik. Bagian ini tetap di tangan saya.">I pick the problem and what a good result looks like. That part stays with me.</p>
+        </div>
+      </li>
+      <li>
+        <span class="ai-num" aria-hidden="true">02</span>
+        <div>
+          <h4 data-en="Draft" data-id="Buat draf">Draft</h4>
+          <p data-en="AI produces a first version quickly: code, an article, or a plan." data-id="AI membuat versi awal dengan cepat, bisa berupa kode, artikel, atau rencana.">AI produces a first version quickly: code, an article, or a plan.</p>
+        </div>
+      </li>
+      <li>
+        <span class="ai-num" aria-hidden="true">03</span>
+        <div>
+          <h4 data-en="Check" data-id="Periksa">Check</h4>
+          <p data-en="I test it against Search Console, Analytics, and the live site. Anything risky gets a backup first, so it can be undone." data-id="Saya uji dengan Search Console, Analytics, dan situs yang sudah live. Yang berisiko saya backup dulu, supaya bisa dibatalkan.">I test it against Search Console, Analytics, and the live site. Anything risky gets a backup first, so it can be undone.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="ai-close"
+      data-en="That routine is why one person can look after two live websites at once."
+      data-id="Alur inilah yang membuat satu orang bisa mengurus dua situs yang aktif sekaligus.">That routine is why one person can look after two live websites at once.</p>
+  </section>
+
+  <section class="fade-in d4">
     <span class="eyebrow" data-en="Experience" data-id="Pengalaman">Experience</span>
 
     <div class="entry featured" style="border-top:none;margin-top:16px;">
@@ -637,6 +846,60 @@ function toggleLang(){
   var saved = 'en';
   try{ saved = localStorage.getItem('cv-lang') || 'en'; }catch(e){}
   if(saved === 'id'){ applyLang('id'); }
+})();
+
+/* AI section: typing animation (starts when the section is on screen) */
+(function(){
+  var el = document.getElementById('aiTyped');
+  if(!el) return;
+  var phrases = {
+    en: [
+      'I build with AI, every day.',
+      'One person, the output of a small team.',
+      'AI drafts. I decide.',
+      'Using AI well takes skill.'
+    ],
+    id: [
+      'Saya membangun dengan AI, setiap hari.',
+      'Satu orang, hasil sebesar tim kecil.',
+      'AI membuat draf. Saya yang memutuskan.',
+      'Memakai AI dengan baik itu butuh keahlian.'
+    ]
+  };
+  function lang(){ return document.documentElement.getAttribute('data-lang') === 'id' ? 'id' : 'en'; }
+  var i = 0, j = 0, deleting = false, started = false;
+  function tick(){
+    var list = phrases[lang()];
+    var text = list[i % list.length];
+    if(j > text.length) j = text.length;
+    el.textContent = text.slice(0, j);
+    var delay = deleting ? 30 : 65;
+    if(!deleting && j === text.length){ deleting = true; delay = 2200; }
+    else if(deleting && j === 0){ deleting = false; i = (i + 1) % list.length; delay = 450; }
+    else { j += deleting ? -1 : 1; }
+    setTimeout(tick, delay);
+  }
+  function start(){ if(started) return; started = true; tick(); }
+  var box = el.parentNode;
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ start(); io.disconnect(); } });
+    }, {threshold:0.3});
+    io.observe(box);
+  } else { start(); }
+})();
+
+/* AI section: light up the ten people when scrolled into view */
+(function(){
+  var eq = document.getElementById('aiEq');
+  if(!eq) return;
+  if(!('IntersectionObserver' in window)){ eq.classList.add('on'); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ eq.classList.add('on'); io.disconnect(); }
+    });
+  }, {threshold:0.4});
+  io.observe(eq);
 })();
 </script>
 
