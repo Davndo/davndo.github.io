@@ -587,7 +587,17 @@ body{
 .eyebrow{font-size:0.7rem;letter-spacing:0.18em;}
 .eyebrow::before{width:24px;}
 
-.summary p,.ai-lead{font-size:1.1rem;line-height:1.75;text-align:left;hyphens:manual;}
+.summary p,.ai-lead{font-size:1.1rem;line-height:1.75;text-align:justify;text-justify:inter-word;hyphens:auto;}
+
+/* justify all running text (paragraphs, list items, descriptions) */
+p,li,.role,.org,.detail,.site-body p,.proj p,.entry ul,.ai-steps p,.ai-close,.contact span,.eyebrow,.featured .entry-body,.stack{
+  text-align:justify;
+  text-justify:inter-word;
+  hyphens:auto;
+}
+.verse-text,.verse-ref,.eyebrow,.stack{text-align:center;}
+.eyebrow{text-align:left;}
+.verse-text{text-align:center;}
 
 .ai-quote{
   background:linear-gradient(155deg,#1c2321 0%,#262f2c 100%);
