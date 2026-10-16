@@ -1,0 +1,18 @@
+{
+  "name": "David Fernando — CV & Portfolio",
+  "short_name": "David Fernando",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1f5fae",
+  "description": "CV and portfolio for David Fernando, SEO and WordPress engineer and automation builder.",
+  "icons": [
+    {
+      "src": "photo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
